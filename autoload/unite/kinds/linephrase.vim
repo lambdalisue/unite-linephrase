@@ -12,7 +12,7 @@ set cpo&vim
 let s:kind = {
       \ 'name': 'linephrase',
       \ 'parents': ['openable', 'uri'],
-      \ 'default_action': 'yank',
+      \ 'default_action': 'insert',
       \ 'action_table': {
       \   'open': {
       \     'description': 'open the linephrase file to edit',
