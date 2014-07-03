@@ -34,12 +34,6 @@ function! s:source.gather_candidates(args, context) abort " {{{
   endfor
 
   if empty(candidates)
-    call add(candidates, {
-          \ 'word': "Create a new linephrase file",
-          \ 'abbr': "[[ Create a new linephrase file ]]",
-          \ 'kind': 'linephrase_action',
-          \ 'action__command': "call linephrase#new()",
-          \})
     " filter linephrase files instead
     for linephrase in values(linephrases)
       call add(candidates, {
@@ -47,10 +41,17 @@ function! s:source.gather_candidates(args, context) abort " {{{
             \ 'abbr': linephrase.abbr,
             \ 'kind': 'linephrase_file',
             \ 'action__name': linephrase.name,
+            \ 'action__description': linephrase.description,
             \ 'action__path': linephrase.path,
             \ 'action__directory': fnamemodify(linephrase.path, ':p:h'),
             \})
     endfor
+    call add(candidates, {
+          \ 'word': "Create a new linephrase file",
+          \ 'abbr': "[[ Create a new linephrase file ]]",
+          \ 'kind': 'linephrase_action',
+          \ 'action__command': "call linephrase#new()",
+          \})
   endif
   return candidates
 endfunction " }}}
