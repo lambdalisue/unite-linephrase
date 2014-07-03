@@ -20,6 +20,9 @@ let s:kind = {
       \     'is_start': 1,
       \   },
       \ },
+      \ 'alias_table': {
+      \   'delete': 'vimfiler__delete',
+      \ },
       \}
 function! s:kind.action_table.select.func(candidates) " {{{
   let args = map(copy(a:candidates), 'v:val.action__name')
