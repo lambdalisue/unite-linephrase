@@ -140,6 +140,18 @@ function! linephrase#new(...) abort " {{{
   endfor
   execute len(template) + 1
 endfunction " }}}
+function! linephrase#define_highlights() abort " {{{
+  highlight default link  UniteLinePhraseTag                Tag
+  highlight default link  UniteLinePhraseDescription        Title
+  highlight default link  UniteLinePhraseComment            Comment
+  highlight default link  UniteLinePhraseSourceDescription  Title
+endfunction " }}}
+function! linephrase#define_syntax() abort " {{{
+  syntax match UniteLinePhraseComment           /^#.*$/
+  syntax match UniteLinePhraseSourceDescription /^!.*$/
+  syntax match UniteLinePhraseDescription       /\%1l.*/
+  syntax match UniteLinePhraseTag               /\[[^\]]\+\]/
+endfunction " }}}
 
 let s:settings = {
       \ 'directory': printf('"%s"', expand('~/.vim/linephrase')),

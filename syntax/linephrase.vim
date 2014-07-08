@@ -13,9 +13,8 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 syntax clear
-syntax match Comment /^#.*$/
-syntax match Special /^!.*$/
-syntax match Title   /\%1l.*/
+call linephrase#define_highlights()
+call linephrase#define_syntax()
 
 let b:current_syntax = 'linephrase'
 let &cpo = s:save_cpo

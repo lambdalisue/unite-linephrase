@@ -56,11 +56,20 @@ function! s:source.gather_candidates(args, context) abort " {{{
   return candidates
 endfunction " }}}
 function! s:source.hooks.on_syntax(args, context) abort " {{{
+  call linephrase#define_highlights()
+  highlight default link uniteSource__linephrase_action      Function
+  highlight default link uniteSource__linephrase_error       ErrorMsg
+  highlight default link uniteSource__linephrase_warning     WarningMsg
+  highlight default link uniteSource__linephrase_tag UniteLinePhraseTag
+  highlight default link uniteSource__linephrase_filename UniteLinePhraseComment
+  execute 'syntax match uniteSource__linephrase_filename'
+        \ '/ : \zs.*\ze\s*$/'
+        \ 'contained containedin=uniteSource__linephrase'
+  execute 'syntax match uniteSource__linephrase_tag'
+        \ '/\[[^\]]\+\]/'
+        \ 'contained containedin=uniteSource__linephrase'
   execute 'syntax match uniteSource__linephrase_action'
         \ '/\s*\zs\[\[.*\]\]\ze\s*$/'
-        \ 'contained containedin=uniteSource__linephrase'
-  execute 'syntax match uniteSource__linephrase_description'
-        \ '/ : \zs.*\ze\s*$/'
         \ 'contained containedin=uniteSource__linephrase'
   execute 'syntax match uniteSource__linephrase_error'
         \ '/<<< Error: .* >>>/'
@@ -68,10 +77,6 @@ function! s:source.hooks.on_syntax(args, context) abort " {{{
   execute 'syntax match uniteSource__linephrase_warning'
         \ '/<<< Warning: .* >>>/'
         \ 'contained containedin=uniteSource__linephrase'
-  highlight default link uniteSource__linephrase_action       Function
-  highlight default link uniteSource__linephrase_description  Special
-  highlight default link uniteSource__linephrase_error        ErrorMsg
-  highlight default link uniteSource__linephrase_warning      WarningMsg
 endfunction " }}}
 
 
