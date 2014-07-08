@@ -57,11 +57,11 @@ function! linephrase#load_linephrase(path) abort " {{{
       let error = 'Warning: no linephrase is found in this file'
     endif
   endif
-  let word = printf("%s : %s", name, description)
+  let word = printf("%s : %s", description, name)
   if empty(error)
     let abbr = word
   else
-    let abbr = printf("%s <<< %s >>> : %s", name, error, description)
+    let abbr = printf("%s <<< %s >>> : %s", description, error, name)
   endif
   return {
         \ 'word': word,
