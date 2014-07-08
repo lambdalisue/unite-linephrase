@@ -1,7 +1,9 @@
 unite-linephrase
 ===============================================================================
 
-Version: 0.1.0
+Version: 0.1.1
+
+![unite-linephrase v0.1.1 (Screencast)](./doc/screencast.gif)
 
 *unite-linephrase* is a [Unite.vim](https://github.com/Shougo/unite.vim) plugin for listing, searching, manipulating set phrases.
 It is developed for one liner set phrases (linephrases), something like:

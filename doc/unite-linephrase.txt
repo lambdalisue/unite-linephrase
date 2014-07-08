@@ -1,6 +1,6 @@
 *unite-linephrase.txt* A unite source which easily manipulate set phrases
 
-Version: 0.1.0
+Version: 0.1.1
 Author:  Alisue <lambdalisue@hashnote.net>	*unite-linephrase-author*
 License: MIT license  {{{
 	Copyright (c) 2014 Alisue, hashnote.net
