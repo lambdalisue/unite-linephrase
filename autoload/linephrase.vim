@@ -83,6 +83,9 @@ function! linephrase#gather_linephrases(...) abort " {{{
           \ printf('%s/*.linephrase', settings.directory))
     let s:cache = {}
     for filename in filenames
+      if !filereadable(filename)
+        continue
+      endif
       let linephrase = linephrase#load_linephrase(filename)
       if type(linephrase) == 0
         " invalid linephrase, ignore
