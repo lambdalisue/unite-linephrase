@@ -1,7 +1,7 @@
 unite-linephrase
 ===============================================================================
 
-Version: 0.1.1
+Version: 0.1.2
 
 ![unite-linephrase v0.1.1 (Screencast)](./doc/screencast.gif)
 
